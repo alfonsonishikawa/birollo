@@ -1,0 +1,32 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Ejemplo de la librería Virollo</title>
+    <link rel="stylesheet" type="text/css" href="virollo.css"/>
+    <script type="text/javascript" src="virollo.js"></script>
+    <script type="text/javascript">
+    
+        function boot() {
+        	var contextoCanvasIzq = document.getElementById("virollo_izquierda").getContext("2d") ;
+        	var contextoCanvasDcha = document.getElementById("virollo_derecha").getContext("2d") ;
+        	virollizar(contextoCanvasIzq, contextoCanvasDcha) ;
+        	
+        	contextoCanvasIzq.fillStyle = "rgb(0,0,255)" ;
+        	contextoCanvasIzq.fillRect(50,50,60,35) ;
+        	contextoCanvasIzq.setProfundidad(-30) ;
+            contextoCanvasIzq.fillRect(100,100,40,55) ;
+        	
+        }
+    
+    </script>
+    
+</head>
+<body onload="boot()">
+
+<div id="virollo_visor">
+    <canvas id="virollo_izquierda"></canvas>
+    <canvas id="virollo_derecha"></canvas>
+</div>
+
+</body>
+</html>

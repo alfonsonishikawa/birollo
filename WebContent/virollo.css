@@ -1,0 +1,21 @@
+
+#virollo_visor {
+	width: 613px ;
+	margin: auto ;
+}
+
+#virollo_visor canvas {
+	height: 250px ;
+	width: 200px ;
+	border: 1px solid black ;
+	border-left: 3px solid black ;
+}
+
+#virollo_izquierda {
+	float: left ;
+	margin-right: 50px ;
+}
+
+#virollo_derecha {
+	
+}
