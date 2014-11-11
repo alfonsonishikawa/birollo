@@ -11,9 +11,14 @@
         	var contextoCanvasDcha = document.getElementById("virollo_derecha").getContext("2d") ;
         	virollizar(contextoCanvasIzq, contextoCanvasDcha) ;
         	
+        	var ancho = document.getElementById("virollo_izquierda").width ;
+        	var alto = document.getElementById("virollo_izquierda").height ;
+        	
+        	contextoCanvasIzq.drawImage(document.getElementById("space"), 0, 0, ancho, alto) ;
+        	contextoCanvasDcha.drawImage(document.getElementById("space"), 0, 0, ancho, alto, 0, 0, ancho, alto) ;
         	contextoCanvasIzq.fillStyle = "rgb(0,0,255)" ;
         	contextoCanvasIzq.fillRect(50,50,60,35) ;
-        	contextoCanvasIzq.setProfundidad(-30) ;
+//        	contextoCanvasIzq.setProfundidad(30) ;
             contextoCanvasIzq.fillRect(100,100,40,55) ;
         	
         }
@@ -22,7 +27,7 @@
     
 </head>
 <body onload="boot()">
-
+<img id="space" src="space.jpg"/>
 <div id="virollo_visor">
     <canvas id="virollo_izquierda"></canvas>
     <canvas id="virollo_derecha"></canvas>
