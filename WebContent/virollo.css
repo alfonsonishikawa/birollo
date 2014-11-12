@@ -1,12 +1,12 @@
 
 #virollo_visor {
-	width: 617px ;
+	width: 627px ;
 	margin: auto ;
+	padding-top: 20% ;
 }
 
 #virollo_visor canvas {
-	height: 250px ;
-	width: 200px ;
+	margin-left: 5px ;
 }
 
 #virollo_izquierda {

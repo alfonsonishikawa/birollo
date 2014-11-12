@@ -7,31 +7,43 @@
     <script type="text/javascript">
     
         function boot() {
-        	var contextoCanvasIzq = document.getElementById("virollo_izquierda").getContext("2d") ;
-        	var contextoCanvasDcha = document.getElementById("virollo_derecha").getContext("2d") ;
+        	// Ver https://stackoverflow.com/questions/16499687/html5-canvas-drawimage-stretched
+        	var canvasIzq = document.getElementById("virollo_izquierda") ;
+        	var canvasDcha = document.getElementById("virollo_derecha") ;
+        	var ancho = canvasIzq.width ;
+        	var alto = canvasIzq.height ;
+        	var contextoCanvasIzq = canvasIzq.getContext("2d") ;
+        	var contextoCanvasDcha = canvasDcha.getContext("2d") ;
+
+        	//Imagenes
+        	var espacio = document.getElementById("space") ;
+        	var sol = document.getElementById("sol") ;
+        	var tierra = document.getElementById("tierra") ;
+        	
         	virollizar(contextoCanvasIzq, contextoCanvasDcha) ;
         	
-        	var ancho = document.getElementById("virollo_izquierda").width ;
-        	var alto = document.getElementById("virollo_izquierda").height ;
-        	
-        	contextoCanvasIzq.drawImage(document.getElementById("space"), 0, 0, ancho, alto) ;
-        	contextoCanvasDcha.drawImage(document.getElementById("space"), 0, 0, ancho, alto, 0, 0, ancho, alto) ;
+        	contextoCanvasIzq.setProfundidad(0) ;
+        	contextoCanvasIzq.drawImage(espacio, 0, 0, ancho, alto, 0, 0, ancho, alto) ;
         	contextoCanvasIzq.fillStyle = "rgb(0,0,255)" ;
-        	contextoCanvasIzq.fillRect(50,50,60,35) ;
-//        	contextoCanvasIzq.setProfundidad(30) ;
-            contextoCanvasIzq.fillRect(100,100,40,55) ;
-        	
+        	contextoCanvasIzq.setProfundidad(6) ;
+        	contextoCanvasIzq.drawImage(sol, ancho/2-20, alto/2-20, 40, 40) ;
+        	contextoCanvasIzq.setProfundidad(12) ;
+        	contextoCanvasIzq.drawImage(tierra, ancho/2, alto/2-7, 15, 15) ;
         }
     
     </script>
     
 </head>
 <body onload="boot()">
-<img id="space" src="space.jpg"/>
+
 <div id="virollo_visor">
-    <canvas id="virollo_izquierda"></canvas>
-    <canvas id="virollo_derecha"></canvas>
+    <canvas id="virollo_izquierda" height="250" width="200"></canvas>
+    <canvas id="virollo_derecha" height="250" width="200"></canvas>
 </div>
+
+<img id="space" src="space.jpg" hidden="true"/>
+<img id="sol" src="sol.png" hidden="true"/>
+<img id="tierra" src="earth.png" hidden="true"/>
 
 </body>
 </html>
