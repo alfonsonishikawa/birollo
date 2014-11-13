@@ -3,9 +3,9 @@ function virollizar( canvasContextMaster, canvasContextSlave ) {
 	
 	canvasContextMaster.profundidad$ = 5 ;
 	/** Valor que escala el efecto de profundidad. Cuanto mayor es el valor, menos se percibe. */
-	canvasContextMaster.escaladoProfundidad$ = 2 ;
+	canvasContextMaster.escaladoProfundidad$ = 1 ;
 	/** La profundidad efectiva es la profundidad dividida entre el escalado */
-	canvasContextMaster.profundidadEfectiva$ = 5/2 ;
+	canvasContextMaster.profundidadEfectiva$ = 5/canvasContextMaster.escaladoProfundidad$ ;
 	
 	canvasContextMaster.ancho$ = canvasContextMaster.canvas.width ;
 	canvasContextMaster.alto$ = canvasContextMaster.canvas.height ;
@@ -56,7 +56,7 @@ function virollizar( canvasContextMaster, canvasContextSlave ) {
 		
 	} ;
 	
-	canvasContextMaster.beginPath = function() {
+/*	canvasContextMaster.beginPath = function() {
 		this.__proto__.beginPath() ;
 		this.slave$.beginPath() ;
 	} ;
@@ -65,5 +65,5 @@ function virollizar( canvasContextMaster, canvasContextSlave ) {
 		this.__proto__.fill() ;
 		this.slave$.fill() ;
 	} ;
-
+*/
 } ;

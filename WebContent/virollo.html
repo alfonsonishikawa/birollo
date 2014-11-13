@@ -3,32 +3,102 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Ejemplo de la librería Virollo</title>
     <link rel="stylesheet" type="text/css" href="virollo.css"/>
+    <script type="text/javascript" src="planeta.js"></script>
     <script type="text/javascript" src="virollo.js"></script>
     <script type="text/javascript">
     
+    	var canvas,
+    		ancho,
+    		alto,
+    		contexto,
+    		imgEspacio,
+    		arrayPlanetas = [];
+    	
+    
         function boot() {
         	// Ver https://stackoverflow.com/questions/16499687/html5-canvas-drawimage-stretched
-        	var canvasIzq = document.getElementById("virollo_izquierda") ;
+        	canvas = document.getElementById("virollo_izquierda") ;
         	var canvasDcha = document.getElementById("virollo_derecha") ;
-        	var ancho = canvasIzq.width ;
-        	var alto = canvasIzq.height ;
-        	var contextoCanvasIzq = canvasIzq.getContext("2d") ;
+        	ancho = canvas.width ;
+        	alto = canvas.height ;
+        	contexto = canvas.getContext("2d") ;
         	var contextoCanvasDcha = canvasDcha.getContext("2d") ;
+        	
+        	virollizar(contexto, contextoCanvasDcha) ;
+        	
+        	var tierra = new Planeta('tierra', document.getElementById("tierra"), contexto, 15, {
+        		anguloInicial: -0.5,
+                radio: 35,
+                alturaTraslacion: 10,
+                velocidadAngular: 0.04,
+                centroX: ancho/2 -7,
+                centroY: ancho/2,
+                centroProfundidad: 6
+        	}) ;
+        	
+        	var sol = new Planeta('sol', document.getElementById("sol"), contexto, 40, {
+        		anguloInicial: 0,
+                radio: 0,
+                alturaTraslacion: 0,
+                velocidadAngular: 0,
+                centroX: ancho/2 - 20,
+                centroY: ancho/2 -10,
+                centroProfundidad: 6
+        	}) ;
 
+        	var jupiter = new Planeta('jupiter', document.getElementById("jupiter"), contexto, 35, {
+        		anguloInicial: 0.5,
+                radio: 80,
+                alturaTraslacion: 5,
+                velocidadAngular: 0.01,
+                centroX: ancho/2 - 17,
+                centroY: ancho/2 - 17,
+                centroProfundidad: 6,
+                maxProfundidad: 9
+        	}) ;
+        	
+        	var enterprise = new Planeta('enterprise', document.getElementById("enterprise"), contexto, 60,{
+        		anguloInicial: Math.PI,
+                radio: 240,
+                alturaTraslacion: 80,
+                velocidadAngular: 0.005,
+                centroX: ancho*2/3,
+                centroY: ancho/2 - 30 ,
+                centroProfundidad: 6,
+                maxProfundidad: 12
+        	}) ;
+
+        	arrayPlanetas.push(tierra) ;
+        	arrayPlanetas.push(sol) ;
+        	arrayPlanetas.push(jupiter) ;
+        	arrayPlanetas.push(enterprise) ;
+        	
         	//Imagenes
-        	var espacio = document.getElementById("space") ;
-        	var sol = document.getElementById("sol") ;
-        	var tierra = document.getElementById("tierra") ;
+        	imgEspacio = document.getElementById("space") ;
         	
-        	virollizar(contextoCanvasIzq, contextoCanvasDcha) ;
+        	contexto.setProfundidad(0) ;
+        	contexto.drawImage(imgEspacio, 0, 0, ancho, alto, 0, 0, ancho, alto) ;
+        	var ordenadosPorProfundidad = getOrdenadosPorProfundidad(arrayPlanetas) ;
+        	for (i in ordenadosPorProfundidad) {
+				if (ordenadosPorProfundidad[i].nombre == 'enterprise' && ordenadosPorProfundidad[i].getPosicion.profundidad < 120)
+					continue ;
+        		ordenadosPorProfundidad[i].dibujar() ;
+        	}
+        	window.requestAnimationFrame(animar) ;
+        }
+        
+        function animar(timestamp){
+
+			for (i in arrayPlanetas) arrayPlanetas[i].tick() ;
         	
-        	contextoCanvasIzq.setProfundidad(0) ;
-        	contextoCanvasIzq.drawImage(espacio, 0, 0, ancho, alto, 0, 0, ancho, alto) ;
-        	contextoCanvasIzq.fillStyle = "rgb(0,0,255)" ;
-        	contextoCanvasIzq.setProfundidad(6) ;
-        	contextoCanvasIzq.drawImage(sol, ancho/2-20, alto/2-20, 40, 40) ;
-        	contextoCanvasIzq.setProfundidad(12) ;
-        	contextoCanvasIzq.drawImage(tierra, ancho/2, alto/2-7, 15, 15) ;
+        	contexto.setProfundidad(0) ;
+        	contexto.drawImage(imgEspacio, 0, 0, ancho, alto, 0, 0, ancho, alto) ;
+        	var ordenadosPorProfundidad = getOrdenadosPorProfundidad(arrayPlanetas) ;
+        	for (i in ordenadosPorProfundidad) {
+        		ordenadosPorProfundidad[i].dibujar() ;
+        	}
+        	
+        	window.requestAnimationFrame(animar) ;
         }
     
     </script>
@@ -44,6 +114,8 @@
 <img id="space" src="space.jpg" hidden="true"/>
 <img id="sol" src="sol.png" hidden="true"/>
 <img id="tierra" src="earth.png" hidden="true"/>
+<img id="jupiter" src="jupiter.png" hidden="true"/>
+<img id="enterprise" src="enterprise.png" hidden="true"/>
 
 </body>
 </html>
