@@ -1,0 +1,18 @@
+
+#birollo_visor {
+	width: 627px ;
+	margin: auto ;
+	padding-top: 20% ;
+}
+
+#birollo_visor canvas {
+	margin-left: 5px ;
+}
+
+#birollo_izquierda {
+	float: left ;
+}
+
+#birollo_derecha {
+	
+}
