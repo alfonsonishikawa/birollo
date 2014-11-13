@@ -1,10 +1,10 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Ejemplo de la librería Virollo</title>
-    <link rel="stylesheet" type="text/css" href="virollo.css"/>
+    <title>Ejemplo de la librería Birollo</title>
+    <link rel="stylesheet" type="text/css" href="birollo.css"/>
     <script type="text/javascript" src="planeta.js"></script>
-    <script type="text/javascript" src="virollo.js"></script>
+    <script type="text/javascript" src="birollo.js"></script>
     <script type="text/javascript">
     
     	var canvas,
@@ -17,14 +17,14 @@
     
         function boot() {
         	// Ver https://stackoverflow.com/questions/16499687/html5-canvas-drawimage-stretched
-        	canvas = document.getElementById("virollo_izquierda") ;
-        	var canvasDcha = document.getElementById("virollo_derecha") ;
+        	canvas = document.getElementById("birollo_izquierda") ;
+        	var canvasDcha = document.getElementById("birollo_derecha") ;
         	ancho = canvas.width ;
         	alto = canvas.height ;
         	contexto = canvas.getContext("2d") ;
         	var contextoCanvasDcha = canvasDcha.getContext("2d") ;
         	
-        	virollizar(contexto, contextoCanvasDcha) ;
+        	birollizar(contexto, contextoCanvasDcha) ;
         	
         	var tierra = new Planeta('tierra', document.getElementById("tierra"), contexto, 15, {
         		anguloInicial: -0.5,
@@ -106,9 +106,9 @@
 </head>
 <body onload="boot()">
 
-<div id="virollo_visor">
-    <canvas id="virollo_izquierda" height="250" width="200"></canvas>
-    <canvas id="virollo_derecha" height="250" width="200"></canvas>
+<div id="birollo_visor">
+    <canvas id="birollo_izquierda" height="250" width="200"></canvas>
+    <canvas id="birollo_derecha" height="250" width="200"></canvas>
 </div>
 
 <img id="space" src="space.jpg" hidden="true"/>

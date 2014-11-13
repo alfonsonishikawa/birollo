@@ -1,4 +1,4 @@
-virollo
+Birollo
 =======
 
 Stereoscopic canvas library

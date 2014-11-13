@@ -1,5 +1,5 @@
 
-function virollizar( canvasContextMaster, canvasContextSlave ) {
+function birollizar( canvasContextMaster, canvasContextSlave ) {
 	
 	canvasContextMaster.profundidad$ = 5 ;
 	/** Valor que escala el efecto de profundidad. Cuanto mayor es el valor, menos se percibe. */
