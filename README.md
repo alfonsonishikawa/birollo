@@ -2,7 +2,9 @@ Birollo
 =======
 Cross eyes stereoscopic canvas library.
 
-Developed after a 12 hours javascript course, started as a proof of concept to test prototype features in javascript. Seems canvas makes some checks about the instance when extending, so is not really possible to do what I wanted to do. Anyway, I managed to make it realively transparent to the programmer.
+**Project under development**
+
+Developed after a 12 hours javascript course, started as a proof of concept to test prototype features in javascript. Seems canvas makes some checks about the instance when extending, so it is not posible to do what I wanted to do. Anyway, I managed to make the programming of the stereoscopic efect relatively transparent for the programmer.
 
 Online example: [http://alfonsonishikawa.github.io/birollo](http://alfonsonishikawa.github.io/birollo)
 
