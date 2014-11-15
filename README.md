@@ -5,14 +5,15 @@ Cross eyes stereoscopic canvas library.
 Developed after a 12 hours javascript course, started as a proof of concept to test prototype features in javascript. Seems canvas makes some checks about the instance when extending, so is not really possible to do what I wanted to do. Anyway, I managed to make it realively transparent to the programmer.
 
 Online example: [http://alfonsonishikawa.github.io/birollo](http://alfonsonishikawa.github.io/birollo)
-It is encouraged to read the instructions before (not mine): [http://www.starosta.com/3dshowcase/ihelp.html](http://www.starosta.com/3dshowcase/ihelp.html)
+
+I encourage to read the instructions before (not mine): [http://www.starosta.com/3dshowcase/ihelp.html](http://www.starosta.com/3dshowcase/ihelp.html)
 
 Features implemented
 --------------------
 * fillRect
 * drawImage
 
-Features to do
+Features TO DO
 --------------
 * Enable/disable the stereoscopic effect.
 * Queue the drawing commands to draw at the end in proper order (calling a new function commint() or something).
