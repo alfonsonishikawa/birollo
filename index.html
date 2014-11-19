@@ -36,6 +36,34 @@
 <p>Se recomienda leer previamente las instrucciones: <a href="http://www.starosta.com/3dshowcase/ihelp.html">http://www.starosta.com/3dshowcase/ihelp.html</a></p>
 
 <p><a href="birollo/birollo.html">Ir al ejemplo</a></p>
+
+<p>English version:</p>
+
+<p>Cross eyes stereoscopic canvas library.</p>
+
+<p>Project under development</p>
+
+<p>Developed after a 12 hours javascript course, started as a proof of concept to test prototype features in javascript. Seems canvas makes some checks about the instance when extending, so it is not posible to do what I wanted to do. Anyway, I managed to make the programming of the stereoscopic efect relatively transparent for the programmer.</p>
+
+<p>Online example: <a href="http://alfonsonishikawa.github.io/birollo">http://alfonsonishikawa.github.io/birollo</a></p>
+
+<p>I encourage to read the instructions before (not mine): <a href="http://www.starosta.com/3dshowcase/ihelp.html">http://www.starosta.com/3dshowcase/ihelp.html</a>
+Features implemented</p>
+
+<pre><code>fillRect
+drawImage
+</code></pre>
+
+<p>Features TO DO</p>
+
+<pre><code>Enable/disable the stereoscopic effect.
+Queue the drawing commands to draw at the end in proper order (calling a new function commint() or something).
+Callback to determine the depth of the elements, so already existing programs can "realtively" easy to update to stereoscopic.
+Computations of X, Y and Depth cached.
+Implement the strereoscopic wrapper for all possible functions of canvas (http://www.w3.org/TR/2014/CR-2dcontext-20140821/)
+</code></pre>
+
+<p><a href="birollo/birollo.html">Try the example</a></p>
       </section>
     </div>
 
